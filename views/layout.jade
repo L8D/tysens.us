@@ -8,6 +8,7 @@ html(lang="en")
 
     title Tysensus
     
+    // If I wanted a custom stylus sheet
     //link(rel='stylesheet', href='css/master.css')
     link(rel='stylesheet', href='css/bootstrap.min.css')
     link(rel='stylesheet', href='css/docs.css')
@@ -19,8 +20,7 @@ html(lang="en")
     != yield
 
     //- add other scripts through require.js, not here
-    block after-yield
-      script(data-main="js/main", src="js/require.js")
+    script(data-main="js/main", src="js/require.js")
 
     //- this must be included for live reload to work in developement
     //- it will be automatically ignored when deployed
