@@ -1,16 +1,19 @@
-# requirejs makes life a lot easier when dealing with more than one
-# javascript file and any sort of dependencies, and loads faster.
-
-# for more info on require config, see http://requirejs.org/docs/api.html#config
 require.config
   shim:
     bootstrap:
       deps: ['jquery']
-    bd:
+    prettify:
+      deps: ['bootstrap']
+    application:
       deps: ['jquery', 'bootstrap']
+    scroll:
+      deps: ['jquery']
   paths:
-    jquery: '/js/jquery'
     bootstrap: '/js/bootstrap.min'
-    bd: '/js/bd'
+    jquery: '/js/jquery'
+    application: '/js/application'
+    prettify: '/js/prettify'
+    scroll: '/js/scroll'
 
-require ['jquery', 'bootstrap', 'bd'], ($) -> {}
+require ['jquery', 'bootstrap', 'prettify', 'scroll', 'application'], ($) ->
+  console.log 'Javscript loaded'
