@@ -16,9 +16,14 @@
     // side bar
     setTimeout(function () {
       $('.bs-docs-sidenav').affix({
+        /*
+         *offset: {
+         *  top: function () { return $window.width() <= 980 ? 290 : 210 }
+         *, bottom: 270
+         *}
+         */
         offset: {
-          top: function () { return $window.width() <= 980 ? 290 : 210 }
-        , bottom: 270
+          top: $('.bs-docs-sidenav').position()['top'] - 30
         }
       })
     }, 100)
