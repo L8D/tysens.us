@@ -1,0 +1,17 @@
+div#windows.modal.hide.fade(tabindex='-1', role='dialog', aria-labelledby='windowsLabel', aria-hidden='true')
+
+  .modal-header
+    button.close(type='button', data-dismiss='modal', aria-hidden='true')
+      i.icon-remove
+
+    h2#windowsLabel What a shame; You're using Internet Explorer
+
+  .modal-body
+    :markdown
+      1. Visit [Mozilla Firefox's](https://www.mozilla.org/en-US/firefox/new/) or [Google Chrome's](https://www.google.com/intl/en/chrome/) download page.
+      2. Download said web browser's installer.
+      3. After install, run the web browser.
+      4. Select the 'yes' option for 'Use as default browser?'
+      5. ### Use a different browser
+  .modal-footer
+    button.btn.btn-primary(data-dismiss='modal', aria-hidden='true') Fine, I will stop endargering my computer
