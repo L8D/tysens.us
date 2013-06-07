@@ -11,14 +11,16 @@ html(lang="en")
     //link(rel='stylesheet', href='css/master.css')
     link(rel='stylesheet', href='css/bootstrap.min.css')
     link(rel='stylesheet', href='css/docs.css')
-  body(data-spy='scroll', data-target='.bs-docs-sidebar')
+    link(rel='stylesheet', href='css/prettify.css')
+  body(data-spy='scroll', data-target='#nav')
     include _navbar
     include _windows
 
     != yield
 
     //- add other scripts through require.js, not here
-    script(data-main="js/main", src="js/require.js")
+    block after-yield
+      script(data-main="js/main", src="js/require.js")
 
     //- this must be included for live reload to work in developement
     //- it will be automatically ignored when deployed
