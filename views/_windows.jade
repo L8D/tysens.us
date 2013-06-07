@@ -1,6 +1,7 @@
 // _windows.jade
 // This is a bootstrap modal that will appear if the user is using internet explorer
 
+<noscript><!--</noscript>
 div#windows.modal.hide.fade(tabindex='-1', role='dialog', aria-labelledby='windowsLabel', aria-hidden='true')
 
   .modal-header
@@ -18,3 +19,4 @@ div#windows.modal.hide.fade(tabindex='-1', role='dialog', aria-labelledby='windo
       5. ### Use a different browser
   .modal-footer
     button.btn.btn-primary(data-dismiss='modal', aria-hidden='true') Fine, I will stop endargering my computer
+<noscript>--></noscript>
