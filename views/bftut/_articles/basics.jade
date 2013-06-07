@@ -1,0 +1,96 @@
+section#basics
+  .page-header
+    h1 Basics
+  :markdown
+    Every instruction in Brainfuck is a single character. These are the
+    vanilla instructions(with C alternatives):
+
+    - `+` increment current cell by 1; becomes `++*p;`.
+    - `-` decrement current cell by 1; becomes `--*p;`.
+    - `>` increment cell pointer by 1; becomes `++p;`.
+    - `<` decrement cell pointer by 1; becomes `--p;`.
+    - `[` start loop of code to corrisponding `]`, do while current cell is != 0; becomes `while (*p) {`.
+    - `]` end loop declaration; becomes `}`.
+    - `.` put ascii char of current cell value; becomes `putchar(*p);`
+    - `,` recieve 1 char from stdin and apply to current cell; becomes `*p = getchar();` (or in some dialects of Bf `*p += getchar();`).
+
+    So. Let's think visually for a moment.
+
+    We have 30,000 bytes of memory in brainfuck,
+    each byte or _cell_ of memory contians a number of 0 to 255, -127 to 127,
+    or -2147483648 to 2147483648(if we want to use ints).
+    For now, we'll just imagine they can have any number we want.
+    Each cell in Brainfuck has it's own address, or number.
+    And of course, this number will range from either -14999 to 14999 or 0 to 30000
+    since we only have 30000. A program starts at cell 0(the cell pointer is 0), and every cell has the value of 0.
+
+    The instruction `+` increments the value of the cell. So, the program: `+` just adds 1 to `c0` and quits.
+
+    For example:
+
+        +++++ +++++
+        > +++++
+
+    The steps of the program above:
+
+    1. Start at `c0`.
+    2. Add 1 to `c0`, `c0`'s value is now 1. `+`
+    3. Incrment `c0` again `+`
+    4. ... `+++ +++++`
+    5. `c0` is now 10.
+    6. Move to `c1`. `>`
+    7. Increment `c1` 5 times, now `c1` is 5. `+++++`
+    8. No more instructions, end.
+
+    I really hope you're getting an understanding of it by now, if you haven't, you probably wouldn't understand the rest of this anyways. Though, if you have programming experience, especially with lower level languages, you'd probably be a little bored and ready to move on by now.
+
+  pre.prettyprint.linenums.
+    +++++ +++++ [
+    > +++++ ++
+      > +++++ +++++
+      > +++
+      > +
+      <<<< -
+    ]
+
+    > ++ .
+    > + .
+    +++++ ++ . . 
+    +++ . 
+    > ++ .
+    << +++++ +++++ +++++ .
+    > .
+    +++ .
+    ----- - .
+    ----- --- .
+    > + .
+    > .
+
+  :markdown
+
+    One more breakdown before we move on.
+
+    This is of the above "Hello World" program, which you saw earlier, but it is now on multuple lines for readability's sake:
+
+    1. Start at `c0`, add 10, begin loop.
+    2. Move to `c1`, add 7.
+    3. Move to `c2`, add 10.
+    4. Move to `c3`, add 3.
+    5. Move to `c4`, add 1.
+    6. Move back to `c0` and subtract 1.
+    7. If `c0` is not 0 yet, then go back to step 2. If it is 0, move on.
+
+    8. By this step, step 6 will have been run 10 times, in order to get `c0` to 0 again.
+       This means steps 2-5 have been run 10 times. So `c1` was incremented by 7, 10 times, basically multiplying 7 by 10, resulting in `c1` containing the value of 70.
+    9. Move to `c1`(value of 70), add 2, print. (Printing 72 in ASCII is `H`)
+    10. Move to `c2`(100), add 1, print. (Printing `e`)
+    11. Add 7 to `c2`(Now at 108), print twice. (Printing `ll`)
+    12. Add 3 to `c2`(Now at 111), print. (Printing `o`)
+    13. Move to `c3`(30), add 2, print. (Printing a space)
+    14. Move back to `c1`(72), add 15(becoming 87), print. (Printing `W`)
+    15. Move to `c2`(111), print. (Printing `o`)
+    16. Add 3 to `c2`(Now 114), print. (Printing `r`)
+    17. Subtract 6 from `c2`(Now 108), print. (Printing `l`)
+    18. Subtract 8 from `c2`(Now 100), print. (Printing `d`)
+    19. Move to `c3`(32), add 1, print. (Printing `!`)
+    20. Move to `c4`(10), print. (Printing newline or `\n`)
