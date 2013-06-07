@@ -1,4 +1,5 @@
 all:
+	git pull
 	roots compile
 
 install:
