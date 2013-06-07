@@ -4,7 +4,7 @@
 
 # Files in this list will not be compiled - minimatch supported
 
-exports.ignore_files = ['_*', 'readme*', '.gitignore', '.DS_Store', '.*.swp', 'package.json', 'Procfile', 'server.js']
+exports.ignore_files = ['_*', 'readme*', '.gitignore', '.DS_Store', '.*.swp', 'package.json', 'Procfile', 'server.js', 'Makefile']
 exports.ignore_folders = ['.git']
 
 # Layout file config
