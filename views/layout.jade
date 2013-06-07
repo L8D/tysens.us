@@ -10,9 +10,9 @@ html(lang="en")
     
     // If I wanted a custom stylus sheet
     //link(rel='stylesheet', href='css/master.css')
-    link(rel='stylesheet', href='css/bootstrap.min.css')
-    link(rel='stylesheet', href='css/docs.css')
-    link(rel='stylesheet', href='css/prettify.css')
+    link(rel='stylesheet', href='/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/css/docs.css')
+    link(rel='stylesheet', href='/css/prettify.css')
   body(data-spy='scroll', data-target='#nav')
     include _navbar
     include _windows
@@ -20,7 +20,7 @@ html(lang="en")
     != yield
 
     //- add other scripts through require.js, not here
-    script(data-main="js/main", src="js/require.js")
+    script(data-main="/js/main", src="/js/require.js")
 
     //- this must be included for live reload to work in developement
     //- it will be automatically ignored when deployed
