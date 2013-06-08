@@ -21,6 +21,7 @@ exports.layouts =
 
 exports.locals =
   title: 'Tysensus'
+  active_post: 'PRISM'
 
 # If you are working with a client-side js framework that would benefit
 # from precompiled templates, set this variable to the location of a folder

@@ -25,15 +25,15 @@
             .pull-right
               i.icon-code-fork
         li
-          a(href='#')
-            |  Greefr
+          a(href='//github.com/L8D/tysens.us')
+            |  Tysensus
             .pull-right
               i.icon-code-fork
     .span8
       .tabable
         ul.nav.nav-tabs
           - each post in site.posts
-            - if(post.title == "PRISM")
+            - if(post.title == active_post)
               li.active
                 a(data-toggle="tab", href="##{post.location}")= post.title
             - else
@@ -41,7 +41,7 @@
                 a(data-toggle="tab", href="##{post.location}")= post.title
         .tab-content
           - each post in site.posts
-            - if(post.title == "PRISM")
+            - if(post.title == active_post)
               .tab-pane.active(id="#{post.location}")
                 != post.content
             - else
