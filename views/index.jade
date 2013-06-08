@@ -7,7 +7,21 @@
 .container-fluid
   br
   .row-fluid
-    .span8.offset2
+    .span2.offset1
+      ul.nav.nav-tabs.nav-stacked
+        li
+          a(href='//github.com/L8D') Github
+        li
+          a(href='//twitter.com/TenorB') Twitter
+        li
+          a(href='//github.com/L8D/delvs') 
+            i.icon-github
+            |  Delvs
+        li
+          a(href='#')
+            i.icon-code-fork
+            |  Greefr
+    .span8
       .tabable
         ul.nav.nav-tabs
           - each post in site.posts
