@@ -4,3 +4,24 @@
     p Website of developer & writer, L8D.
       br
       | Using Serif fonts like a boss.
+.container-fluid
+  br
+  .row-fluid
+    .span10.offset1
+      .tabable.tabs-left
+        ul.nav.nav-tabs
+          - each post in site.posts
+            - if(post.title == "PRISM")
+              li.active
+                a(data-toggle="tab", href="##{post.location}")= post.title
+            - else
+              li
+                a(data-toggle="tab", href="##{post.location}")= post.title
+        .tab-content
+          - each post in site.posts
+            - if(post.title == "PRISM")
+              .tab-pane.active(id="#{post.location}")
+                != post.content
+            - else
+              .tab-pane(id="#{post.location}")
+                != post.content
